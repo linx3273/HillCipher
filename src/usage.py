@@ -7,8 +7,6 @@ Option:
     decrypt     d       To decrypt the message based on given key
     --help      -h      Displays this message
 
-
-
 '''
 
 def encInf():
@@ -20,6 +18,7 @@ def encInf():
 Note: 
     Whitespace included in messages 
     Length of key must be a perfect square
+
 '''
 
 
@@ -33,5 +32,6 @@ def decInf():
 
 Note: 
     Whitespace included in messages
-    Length of key must be a perfect square    
+    Length of key must be a perfect square        
+    
 '''
