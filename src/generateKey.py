@@ -20,7 +20,7 @@ def __checkKey(key,keylen):
     sqroot = __isPerfectSquare(keylen)
     if sqroot!=0:
         for i in key:
-            if key not in string.ascii_uppercase:
+            if i not in string.ascii_uppercase:
                 return -1    # if a character is out of the key range
         return sqroot # if everything is valid
     return 0    # if the length of the key is not a perfect square
