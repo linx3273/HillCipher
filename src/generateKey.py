@@ -4,6 +4,7 @@ import string
 import src.msgs as msgs
 
 __keymap = dict(zip(string.ascii_uppercase,range(len(string.ascii_uppercase))))
+__entries = string.ascii_lowercase+".?_"
 
 def __isPerfectSquare(num):
     # returns squareroot if perfect square else returns 0
@@ -46,7 +47,11 @@ def buildKeyMatrix(key):
                 temp = []
         keymatrix = np.array(keymatrix)
 
-        if np.linalg.det(keymatrix)==0:
+        det = np.linalg.det(keymatrix)
+        if det==0:
             msgs.errmsg("Key matrix is singular")
+            exit(1)
+        elif det==len(__entries):
+            msgs.errmsg("Determinant of Key matrix is equal to the length of the character set for the message (modulus)")
             exit(1)
         return keymatrix
