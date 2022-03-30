@@ -31,8 +31,10 @@ def buildKeyMatrix(key):
     sqroot = __checkKey(key,keylen)
     if sqroot==0:
         msgs.errmsg("Length of key is not a perfect square")
+        exit(1)
     elif sqroot==-1:
         msgs.errmsg("Key is not within the range of accepted characters. Use only uppercase alphabets")
+        exit(1)
     else:
         # creating a sqroot*sqroot matrix where sqroot is the squareroot of the length of the key
         keymatrix = []
@@ -42,4 +44,9 @@ def buildKeyMatrix(key):
             if len(temp)==sqroot:
                 keymatrix.append(temp)
                 temp = []
-        return np.array(keymatrix)
+        keymatrix = np.array(keymatrix)
+
+        if np.linalg.det(keymatrix)==0:
+            msgs.errmsg("Key matrix is singular")
+            exit(1)
+        return keymatrix

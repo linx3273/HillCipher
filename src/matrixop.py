@@ -4,7 +4,7 @@ import string
 import src.msgs as msgs
 
 # contains all lowercase alphabets including . ? to make the modulus prime
-__entries = string.ascii_lowercase+".? "
+__entries = string.ascii_lowercase+".?_"
 
 # stores a dictionary each character in __entries to a number from 0-29, will be used for converting letters to indices
 __char_to_index = dict(zip(__entries,range(len(__entries))))
